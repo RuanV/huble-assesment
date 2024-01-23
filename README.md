@@ -1,8 +1,6 @@
 # React Authentication on Vercel
 
-This JavaScript template demonstrates **how to implement user authentication** in React applications using Auth0. This template uses the React Router 6 library.
-
-This template is based on a code sample is part of the ["Auth0 Developer Center"](https://developer.auth0.com/resources/code-samples/spa/react), a place where you can explore the authentication and authorization features of the Auth0 Identity Platform.
+This project demonstrates **how to implement user authentication** in React applications using Auth0. This template uses the React Router 6 library.With the Integration of https://www.themoviedb.org/ REST API.
 
 - `REACT_APP_AUTH0_DOMAIN` is the value of the **"Domain"** field from the Auth0 settings.
 - `REACT_APP_AUTH0_CLIENT_ID` is the value of the **"Client ID"** field from the Auth0 settings.
