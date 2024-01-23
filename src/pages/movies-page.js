@@ -1,9 +1,9 @@
 import React from "react";
-import { HeroBanner } from "../components/hero-banner";
+import { MovieList } from "../components/movie-list";
 import { PageLayout } from "../components/page-layout";
 
-export const HomePage = () => (
+export const MoviesPage = () => (
   <PageLayout>
-    <HeroBanner />
+    <MovieList />
   </PageLayout>
 );
