@@ -17,7 +17,7 @@ export const DetailedMovie = () => {
   const [movie, setMovie] = useState(null);
   const [similar, setSimilar] = useState(null);
   const [overviewtext, setOverview] = useState(null);
-
+  console.log(process.env.BEARER_TOKEN);
   useEffect(() => {
     const options = {
       method: "GET",
