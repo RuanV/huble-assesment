@@ -4,6 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import FilterBar from "./filter-bar";
 import Pagination from "./pagination";
 import { PageLoader } from "./page-loader";
+
 export const MovieList = () => {
   const [featuresList, setFeaturesList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");

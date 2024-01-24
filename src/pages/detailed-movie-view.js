@@ -4,6 +4,7 @@ import { PageLayout } from "../components/page-layout";
 import { useParams } from "react-router-dom";
 import Tag from "../components/tag";
 import ImageSlider from "../components/image-slider";
+import { motion } from "framer-motion";
 
 const iconStyle = {
   maxHeight: "400px",
@@ -15,6 +16,7 @@ export const DetailedMovie = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [similar, setSimilar] = useState(null);
+  const [overviewtext, setOverview] = useState(null);
 
   useEffect(() => {
     const options = {
@@ -31,6 +33,7 @@ export const DetailedMovie = () => {
       .then((data) => {
         console.log(data);
         setMovie(data);
+        setOverview(data.overview);
       })
       .catch((err) => console.error(err));
 
@@ -109,17 +112,26 @@ export const DetailedMovie = () => {
                         className="movie-details-header"
                         style={{ backgroundColor: "rgba(0, 0, 0, 0,0)" }}
                       >
-                        <div
-                          className="movie-details-header-overlay"
-                          style={{ backgroundColor: "rgba(0, 0, 0, 0,0)" }}
+                        <motion.div
+                          transition={{
+                            ease: "linear",
+                            duration: 2,
+                            delay: 3,
+                            x: { duration: 1 },
+                          }}
                         >
-                          <img
-                            src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-                            alt={movie.title}
-                            className="movie-details-poster"
-                            style={iconStyle}
-                          />
-                        </div>
+                          <div
+                            className="movie-details-header-overlay"
+                            style={{ backgroundColor: "rgba(0, 0, 0, 0,0)" }}
+                          >
+                            <img
+                              src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+                              alt={movie.title}
+                              className="movie-details-poster"
+                              style={iconStyle}
+                            />
+                          </div>
+                        </motion.div>
                       </div>
                     </td>
                     <td
@@ -147,7 +159,21 @@ export const DetailedMovie = () => {
                           </tr>
                         </table>
                       </div>
-                      <p className="movie-details-overview">{movie.overview}</p>
+                      <p className="movie-details-overview">
+                        {overviewtext.split(" ").map((el, i) => (
+                          <motion.span
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{
+                              duration: 1,
+                              delay: i / 10,
+                            }}
+                            key={i}
+                          >
+                            {el}{" "}
+                          </motion.span>
+                        ))}
+                      </p>
                       <div className="movie-details-meta">
                         <p>
                           <strong>Release Date:</strong> {movie.release_date}
@@ -185,6 +211,7 @@ export const DetailedMovie = () => {
         >
           Similar Movies
         </h1>
+        <span style={{ fontSize: "10px" }}>(scroll for effect)</span>
         {similar && <ImageSlider slides={similar} />}
       </div>
     </PageLayout>

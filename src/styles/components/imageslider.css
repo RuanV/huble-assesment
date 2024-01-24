@@ -21,5 +21,10 @@
   box-shadow: var(--shadow-4);
 }
 
+.slidercard{
+  &:hover {
+    margin: 10px;
+  }
+}
 
 
