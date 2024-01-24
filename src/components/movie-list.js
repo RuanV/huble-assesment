@@ -12,6 +12,7 @@ export const MovieList = () => {
   const [totalpages, setTotalpages] = useState(1);
 
   const { isLoading } = useAuth0();
+  console.log(process.env.BEARER_TOKEN);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -23,7 +24,7 @@ export const MovieList = () => {
       method: "GET",
       headers: {
         accept: "application/json",
-        Authorization: `Bearer ${process.env.BEARER_TOKEN}`,
+        Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMzJlMTUzODdhZDgzOTE4OTk5MTRjMGMwYjcyYzRmNiIsInN1YiI6IjY1YWUyYjI4ZjhhZWU4MDEwYjFmMmEzMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.RkJ-Sq2statlgtO4dZsjF4oowAYSmbdYh78BMYWyc9o`,
       },
     };
 
