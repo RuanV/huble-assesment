@@ -23,8 +23,7 @@ export const DetailedMovie = () => {
       method: "GET",
       headers: {
         accept: "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMzJlMTUzODdhZDgzOTE4OTk5MTRjMGMwYjcyYzRmNiIsInN1YiI6IjY1YWUyYjI4ZjhhZWU4MDEwYjFmMmEzMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.RkJ-Sq2statlgtO4dZsjF4oowAYSmbdYh78BMYWyc9o",
+        Authorization: `Bearer ${process.env.BEARER_TOKEN}`,
       },
     };
 
